@@ -1,4 +1,4 @@
-public class PetMachine {
+public class PetMachine { //Regra de Negocio Criado !!
 
     private boolean clean;
 
@@ -14,6 +14,8 @@ public class PetMachine {
             return;
         }
 
+        this.water -= 10;
+        this.shampoo -= 2;
         pet.setClean(true);
         System.out.println("O pet" + pet.getName() + "está limpo");
     }
@@ -33,7 +35,7 @@ public class PetMachine {
         }
         shampoo += 2;
     }
-    
+
 
     public int getWater() {
         return water;
@@ -42,4 +44,38 @@ public class PetMachine {
     public int getShampoo() {
         return shampoo;
     }
+
+    public boolean hasPet(){
+        return pet != null;
+    }
+
+    public void setPet(Pet pet) {
+        if(!this.clean){
+            System.out.println("A máquina está suja, para colocar o pet é necessário limpa-la");
+            return;
+        }
+
+
+        if(hasPet()){
+            System.out.println(" O pet" + this.pet.getName() + "Está na máquina nesse momento");
+            return;
+        }
+
+
+        this.pet = pet;
+    }
+
+    public void removePet(){
+        this.clean = this.pet.isClean();
+        System.out.println("O pet" + this.pet.getName() + "está limpo");
+        this.pet = null;
+    }
+    public void wash(){
+        this.water -= 10;
+        this.shampoo -= 2;
+        this.clean = true;
+        System.out.println("A máquina está limpa");
+    }
+
+
 }
