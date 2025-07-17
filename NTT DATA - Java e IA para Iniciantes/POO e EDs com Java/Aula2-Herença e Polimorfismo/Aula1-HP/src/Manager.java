@@ -6,6 +6,13 @@ public non-sealed class Manager extends Employee{ //Extensão - subclasse
 
     private double commission;
 
+    public Manager() {
+    }
+
+    public Manager(String code, String name, String address, int age, double salary) {
+        super(code, name, address, age, salary);
+    }
+
     public String getLogin() {
         return login;
     }
