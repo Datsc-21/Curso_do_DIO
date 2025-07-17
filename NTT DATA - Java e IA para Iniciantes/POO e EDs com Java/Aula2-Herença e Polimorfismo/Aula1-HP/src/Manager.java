@@ -9,8 +9,18 @@ public non-sealed class Manager extends Employee{ //Extensão - subclasse
     public Manager() {
     }
 
-    public Manager(String code, String name, String address, int age, double salary) {
+    @Override
+    public String getCode(){ //sobrecrevendo
+        return "MN" + super.getCode();
+    }
+
+    public Manager(String code, String name, String address,
+                   int age, double salary, String login,
+                   String password, double commission) {
         super(code, name, address, age, salary);
+        this.login = login;
+        this.password = password;
+        this.commission = commission;
     }
 
     public String getLogin() {
