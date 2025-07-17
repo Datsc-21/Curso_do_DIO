@@ -1,4 +1,4 @@
-public class Manager extends Employee{ //Extensão - subclasse
+public non-sealed class Manager extends Employee{ //Extensão - subclasse
 
     private String login;
 

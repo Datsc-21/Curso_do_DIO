@@ -1,4 +1,4 @@
-public class Salesman extends Employee{ //Extensão-subclasse
+public non-sealed class Salesman extends Employee{ //Extensão-subclasse
 
     private double percentPerSold;
 
