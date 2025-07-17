@@ -1,3 +1,5 @@
+package domain;
+
 public non-sealed class Manager extends Employee{ //Extensão - subclasse
 
     private String login;
@@ -11,7 +13,7 @@ public non-sealed class Manager extends Employee{ //Extensão - subclasse
 
     @Override
     public String getCode(){ //sobrecrevendo
-        return "MN" + super.getCode();
+        return "MN" + this.code;
     }
 
     public Manager(String code, String name, String address,
@@ -45,5 +47,10 @@ public non-sealed class Manager extends Employee{ //Extensão - subclasse
 
     public void setCommission(double commission) {
         this.commission = commission;
+    }
+
+    @Override
+    public double getFullSalary(){
+        return this.salary + this.commission;
     }
 }

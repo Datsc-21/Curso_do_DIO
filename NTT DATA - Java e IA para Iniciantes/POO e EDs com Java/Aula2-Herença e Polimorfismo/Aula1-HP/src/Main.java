@@ -1,3 +1,7 @@
+import domain.Employee;
+import domain.Manager;
+import domain.Salesman;
+
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
@@ -33,6 +37,7 @@ public class Main {
                 salesman.setName("Maria");
                 salesman.setSalary(2800);
                 salesman.setPercentPerSold(10);
+                salesman.setSoldAmount(1000);
 
 
                 System.out.println(salesman.getCode());
@@ -41,6 +46,7 @@ public class Main {
                 System.out.println(salesman.getPercentPerSold());
             }
         }
+       System.out.println( employee.getFullSalary());
         System.out.println("====================");
     }
 

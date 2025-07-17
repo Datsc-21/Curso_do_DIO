@@ -1,4 +1,4 @@
-// Colaborador - Superclasse
+package domain;// Colaborador - Superclasse
 
 public sealed abstract class Employee permits Manager, Salesman {
 
@@ -64,7 +64,9 @@ public sealed abstract class Employee permits Manager, Salesman {
         this.salary = salary;
     }
 
+    public double getFullSalary(){
 
+    }
 
 }
 
