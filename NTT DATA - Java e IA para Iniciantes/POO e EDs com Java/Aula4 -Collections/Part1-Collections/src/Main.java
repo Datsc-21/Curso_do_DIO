@@ -9,12 +9,8 @@ public class Main {
         users.add(user);
         users.add(new User(3, "Maria"));
         System.out.println(users.contains(user));
-        System.out.println(users.size());
-       System.out.println(users.isEmpty());
-     // System.out.println(users.getFirst());
-      //System.out.println(users.getLast());
-       System.out.println(users.get(0));
-      // System.out.println(users.getLast());
-       System.out.println(users.get(users.size() -1));
+        System.out.println(users.contains(new User(1,"Maria")));
+        System.out.println(new User(1, "Danny"));
+
     }
 }
