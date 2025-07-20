@@ -6,7 +6,12 @@ import java.util.function.Predicate;
 
 public class Main {
     public static void main(String[] args) {
-        Set<User> users = new TreeSet<>();
+        Set<User> users = new TreeSet<>((User u1, User u2) -> {
+            var compareResult = 0;
+            if(u1.getId() < u2.getId()) compareResult --;
+            if(u1.getId() > u2.getId()) compareResult ++;
+            return compareResult;
+        });
         users.add(new User(2, "Danny"));
         users.add(new User(1, "Taise"));
         users.add(new User(4, "Pedro"));
