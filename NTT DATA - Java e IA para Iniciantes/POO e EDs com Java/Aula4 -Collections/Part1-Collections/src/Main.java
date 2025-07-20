@@ -1,16 +1,25 @@
+import java.time.Duration;
+import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Vector;
 
 public class Main {
     public static void main(String[] args) {
 
-        List<User> users = new ArrayList<>();
-        var user = new User(1, "Danny");
-        users.add(user);
-        users.add(new User(3, "Maria"));
-        System.out.println(users.contains(user));
-        System.out.println(users.contains(new User(1,"Maria")));
-        System.out.println(new User(1, "Danny"));
+        List<Integer> arrayList= new ArrayList<>();
+        var arrayStart = OffsetDateTime.now();
+        for(int i = 0; i < 100_000_000; i++){
+            arrayList.add(i);
+        }
+        System.out.println(Duration.between(arrayStart, OffsetDateTime.now()).toMillis());
+
+        var vectorStart = OffsetDateTime.now();
+        List<Integer> vector = new Vector<>();
+        for (int i = 0; i < 100_000_000; i++){
+            vector.add(i);
+        }
+        System.out.println(Duration.between(arrayStart, OffsetDateTime.now()).toMillis());
 
     }
 }
