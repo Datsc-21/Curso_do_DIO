@@ -1,4 +1,5 @@
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 public class Main {
@@ -11,9 +12,8 @@ public class Main {
 
         System.out.println(users.contains(new User(1, "Danny")));
 
-        var iterator = users.iterator();
-        while(iterator.hasNext()){
-            System.out.println(iterator.next());
+        users.removeAll(List.of(new User(1, "Danny"), new User(2, "Taise")));
+
+        System.out.println(users);
         }
     }
-}
