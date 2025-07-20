@@ -3,12 +3,13 @@ import java.util.function.Predicate;
 
 public class Main {
     public static void main(String[] args) {
-        Set<User> users = new TreeSet<>(Comparator.comparingInt(User::getId));
+        Set<User> users = new TreeSet<>(Comparator.comparingInt(User::getId).reversed());
         users.add(new User(2, "Danny"));
         users.add(new User(1, "Taise"));
         users.add(new User(4, "Pedro"));
         users.add(new User(3, "Luis"));
-
         System.out.println(users);
         }
+
+        
     }
