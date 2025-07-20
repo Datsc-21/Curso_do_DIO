@@ -11,11 +11,9 @@ public class Main {
         users.add(new User(3, "Pedro"));
         users.add(new User(4, "Luis"));
 
-        System.out.println(new User(12, "Danny").hashCode());
-        System.out.println(new User(21, "Dany").hashCode());
-
-
         System.out.println(users.contains(new User(1, "Danny")));
+
+        users.forEach(System.out::println);
 
     }
 }
