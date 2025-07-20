@@ -1,6 +1,7 @@
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.function.Predicate;
 
 public class Main {
     public static void main(String[] args) {
@@ -11,7 +12,7 @@ public class Main {
         users.add(new User(4, "Luis"));
 
 
-        users.removeIf(user -> user.getId() >2);
+        users.removeIf(Predicate.not(user -> user.getId() >2));
 
         System.out.println(users);
         }
