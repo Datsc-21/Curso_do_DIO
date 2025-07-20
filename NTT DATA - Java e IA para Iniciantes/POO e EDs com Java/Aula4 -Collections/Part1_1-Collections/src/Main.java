@@ -10,9 +10,8 @@ public class Main {
         users.add(new User(3, "Pedro"));
         users.add(new User(4, "Luis"));
 
-        System.out.println(users.contains(new User(1, "Danny")));
 
-        users.removeAll(List.of(new User(1, "Danny"), new User(2, "Taise")));
+        users.removeIf(user -> user.getId() >2);
 
         System.out.println(users);
         }
