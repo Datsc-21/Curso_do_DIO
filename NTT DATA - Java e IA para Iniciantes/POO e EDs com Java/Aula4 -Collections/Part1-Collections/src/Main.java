@@ -1,18 +1,20 @@
-import java.util.LinkedList;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Vector;
 
 public class Main {
     public static void main(String[] args) {
-int[] codes = {789, 852};
-System.out.println(codes.length);
-List<Integer> codes2 = new Vector<>();
-codes2.add(codes[8]);
-codes2.add(codes[1]);
-codes2.forEach(System.out::println);
-codes2.add(codes[74988]);
-codes2.forEach(System.out::println);
 
-
+        List<User> users = new ArrayList<>();
+        var user = new User(1, "Danny");
+        users.add(user);
+        users.add(new User(3, "Maria"));
+        System.out.println(users.contains(user));
+        System.out.println(users.size());
+       System.out.println(users.isEmpty());
+     // System.out.println(users.getFirst());
+      //System.out.println(users.getLast());
+       System.out.println(users.get(0));
+      // System.out.println(users.getLast());
+       System.out.println(users.get(users.size() -1));
     }
 }
