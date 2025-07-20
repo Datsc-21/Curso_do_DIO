@@ -6,9 +6,8 @@ import java.util.function.Consumer;
 public class Main {
     public static void main(String[] args) {
         List<User> users = List.of(new User("Maria", 17), new User("João", 20), new User("Danny", 21));
-    users.forEach(user -> {
-     System.out.println(user);
-    });
+    users.forEach(user ->
+     System.out.println(user));
 
     }
 }
