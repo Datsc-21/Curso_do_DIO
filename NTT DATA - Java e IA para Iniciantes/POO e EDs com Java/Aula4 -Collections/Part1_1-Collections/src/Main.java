@@ -1,17 +1,9 @@
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-import java.util.TreeSet;
+import java.util.*;
 import java.util.function.Predicate;
 
 public class Main {
     public static void main(String[] args) {
-        Set<User> users = new TreeSet<>((User u1, User u2) -> {
-            var compareResult = 0;
-            if(u1.getId() < u2.getId()) compareResult --;
-            if(u1.getId() > u2.getId()) compareResult ++;
-            return compareResult;
-        });
+        Set<User> users = new TreeSet<>(Comparator.comparingInt(User::getId));
         users.add(new User(2, "Danny"));
         users.add(new User(1, "Taise"));
         users.add(new User(4, "Pedro"));
