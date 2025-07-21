@@ -11,7 +11,7 @@ public class Main {
         users.put("luis@luis.com", new User("luis", 19));
         users.put("mateus@mateus.com", new User("mateus", 18));
 
-        System.out.println(users.remove("deka@deka.com"));
+        System.out.println(users.remove("deka@deka.com", new User("maria", 17)));
 
 
     }
