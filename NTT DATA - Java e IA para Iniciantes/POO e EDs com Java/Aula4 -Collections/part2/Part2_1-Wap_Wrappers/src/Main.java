@@ -11,8 +11,7 @@ public class Main {
         users.put("luis@luis.com", new User("luis", 19));
         users.put("mateus@mateus.com", new User("mateus", 18));
 
-        System.out.println(users.containsKey("deka@deka.com"));
-        System.out.println(users.containsValue(new User("deka", 21)));
+        System.out.println(users.remove("deka@deka.com"));
 
 
     }
