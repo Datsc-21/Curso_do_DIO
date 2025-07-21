@@ -8,7 +8,10 @@ public class Main {
         Map<String, String> map = new HashMap<>();
        value = value.replace("{", "").replace("}", "").replace("\"", "");
        var valueArr = value.split(",");
-
+for(var v : valueArr){
+    var KeyValue = v.split(":");
+    map.put(KeyValue[0], KeyValue[1]);
+}
 System.out.println(map);
 
     }
