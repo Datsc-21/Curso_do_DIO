@@ -10,11 +10,10 @@ public class Main {
         users.put("maria@,maria.com", new User("maria", 17));
         users.put("luis@luis.com", new User("luis", 19));
         users.put("mateus@mateus.com", new User("mateus", 18));
-        System.out.println(users);
-        System.out.println("=========================================");
-        users.keySet().forEach(System.out::println);
-        System.out.println("=========================================");
-        users.keySet().forEach(System.out::println);
+
+        System.out.println(users.containsKey("deka@deka.com"));
+        System.out.println(users.containsValue(new User("deka", 21)));
+
 
     }
 }
