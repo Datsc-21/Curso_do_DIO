@@ -20,6 +20,11 @@ var scanner = new Scanner(System.in);
             }
 
            if(option == 5) break;
+
+           var selecteOption = OperadoraEnum.values()[option - 1];
+
+           System.out.println(selecteOption);
+
         }
 
     }
