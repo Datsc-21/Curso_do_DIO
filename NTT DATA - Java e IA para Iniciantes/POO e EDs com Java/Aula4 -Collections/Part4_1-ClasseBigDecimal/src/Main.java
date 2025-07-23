@@ -8,7 +8,7 @@ public class Main {
 
      var value1 = new BigDecimal("56.32434");
      var value2 = new BigDecimal("99.242");
-     System.out.println(value2.divide(value1, RoundingMode.HALF_UP));
+     System.out.println(value2.negate());
 
 
 
