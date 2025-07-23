@@ -23,7 +23,14 @@ var scanner = new Scanner(System.in);
 
            var selecteOption = OperadoraEnum.values()[option - 1];
 
-           System.out.println(selecteOption);
+           System.out.println("Informe o primeiro valor: ");
+           var value1 = scanner.nextInt();
+            System.out.println("Informe o segundo valor: ");
+            var value2 = scanner.nextInt();
+
+            var result = selecteOption.getCalculate().apply(value1, value2);
+
+           System.out.printf("$s $s %s = %s \n\n", value1, selecteOption.getSymbol(), value2,result);
 
         }
 
