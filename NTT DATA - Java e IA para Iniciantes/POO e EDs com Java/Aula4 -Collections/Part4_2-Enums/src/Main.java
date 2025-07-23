@@ -30,7 +30,7 @@ var scanner = new Scanner(System.in);
 
             var result = selecteOption.getCalculate().apply(value1, value2);
 
-           System.out.printf("$s $s %s = %s \n\n", value1, selecteOption.getSymbol(), value2,result);
+           System.out.printf("%s %s %s = %s \n\n", value1, selecteOption.getSymbol(), value2,result);
 
         }
 
