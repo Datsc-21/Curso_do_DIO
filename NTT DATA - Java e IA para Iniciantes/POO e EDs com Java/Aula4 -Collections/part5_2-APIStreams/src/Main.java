@@ -15,9 +15,11 @@ public class Main {
 
         List<User> users = new ArrayList<>(generateUsers());
 
-        var values = users.stream().filter(u -> u.contacts().size() >= 2). toList();
+        var values = users.stream().
+                filter(u -> u.contacts() != null && u.contacts().isEmpty()).
+                toList();
 
-    System.out.println(values);
+values.forEach(System.out::println);
 
     }
 
