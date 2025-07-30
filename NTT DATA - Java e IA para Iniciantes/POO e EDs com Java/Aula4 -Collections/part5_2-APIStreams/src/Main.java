@@ -16,7 +16,7 @@ public class Main {
         List<User> users = new ArrayList<>(generateUsers());
 
         var values = users.stream().
-                filter(u -> u.contacts() != null && u.contacts().isEmpty()).
+                filter(u -> u.contacts().stream().allMatch(c -> c.type() == EMAIL)).
                 toList();
 
 values.forEach(System.out::println);
@@ -51,8 +51,8 @@ values.forEach(System.out::println);
 
         var user1 = new User("Andreia", 30, FEMALE, new ArrayList<>(contacts1));
         var user2 = new User("Danny", 21, FEMALE, new ArrayList<>(contacts2));
-        var user3 = new User("Pedro", 19, MALE, new ArrayList<>(contacts3));
-        var user4 = new User("Luis", 19, MALE, new ArrayList<>(contacts4));
+        var user3 = new User("Pedro", 45, MALE, new ArrayList<>(contacts3));
+        var user4 = new User("Luis", 34, MALE, new ArrayList<>(contacts4));
         var user5 = new User("Maria", 17, FEMALE, new ArrayList<>(contacts5));
         var user6 = new User("Bruna", 36, FEMALE, new ArrayList<>());
 
