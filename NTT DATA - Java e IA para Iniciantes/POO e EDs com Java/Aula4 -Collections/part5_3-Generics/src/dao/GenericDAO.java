@@ -2,6 +2,8 @@ package dao;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
+import java.util.function.Predicate;
 
 public abstract class GenericDAO<T> {
 
@@ -25,5 +27,13 @@ public abstract class GenericDAO<T> {
         return db.remove(domain);
     }
 
+
+    public Optional<T> find(Predicate<T> filterCallback){
+        return db.stream().filter(filterCallback).findFirst();
+    }
+
+    public List<T> findAll(){
+        return db;
+    }
 
 }
