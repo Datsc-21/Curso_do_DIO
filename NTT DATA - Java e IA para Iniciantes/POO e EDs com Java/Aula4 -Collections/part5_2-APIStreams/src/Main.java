@@ -3,6 +3,7 @@ import domain.ContactType;
 import domain.User;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 import static domain.ContactType.EMAIL;
@@ -11,6 +12,11 @@ import static domain.Sex.MALE;
 
 public class Main {
     public static void main(String[] args) {
+
+        List<User> users = new ArrayList<>(generateUsers());
+        users.sort(Comparator.comparing(User::name));
+
+        users.forEach(System.out::println);
 
     }
 
@@ -45,6 +51,7 @@ public class Main {
         var user3 = new User("Pedro", 19, MALE, new ArrayList<>(contacts3));
         var user4 = new User("Luis", 19, MALE, new ArrayList<>(contacts4));
         var user5 = new User("Maria", 17, FEMALE, new ArrayList<>(contacts5));
+        var user6 = new User("Bruna", 36, FEMALE, new ArrayList<>());
 
 
 
