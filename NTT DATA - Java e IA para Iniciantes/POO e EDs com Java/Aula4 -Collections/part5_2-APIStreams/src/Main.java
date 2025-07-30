@@ -14,7 +14,7 @@ public class Main {
     public static void main(String[] args) {
 
         List<User> users = new ArrayList<>(generateUsers());
-        users.sort(Comparator.comparing(User::name));
+        users.sort(Comparator.comparing(User::age));
 
         users.forEach(System.out::println);
 
@@ -55,7 +55,7 @@ public class Main {
 
 
 
-        return List.of(user1, user2, user3,user4, user5);
+        return List.of(user1, user2, user3,user4, user5, user6);
 
     }
 }
