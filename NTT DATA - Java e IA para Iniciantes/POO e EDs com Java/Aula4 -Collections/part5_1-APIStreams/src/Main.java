@@ -6,10 +6,15 @@ import java.util.stream.Stream;
 public class Main {
     public static void main(String[] args) {
 
+List<Integer> value1 = List.of(3,6,9,12);
+List<Integer> value2 = List.of(1,2,3,4,5,6,7,8,9,10,11,12);
 
-        var value = Stream.of(1,2,3,4,5,6,7).
-               map(n -> n % 2 == 0).toList();
+var newValues = value2.stream()
+        .filter(value1::contains)
+        .peek(System.out::println)
+        .map(n -> value1.stream().reduce(n, (n1,n2) -> n1 -n2))
+        .collect(Collectors.toSet());
 
-        System.out.println(value);
+        System.out.println(newValues);
     }
 }
