@@ -7,9 +7,10 @@ public class Main {
 
 
         var value = Stream.of("Maria", "João", "Marcio", "Luana", "Leandro", "Marcia").
-               anyMatch(n -> n.contains("a"));
+                filter(n -> n.endsWith("o")).
+               allMatch(n -> n.contains("a"));
 
-        
+
         System.out.println(value);
     }
 }
