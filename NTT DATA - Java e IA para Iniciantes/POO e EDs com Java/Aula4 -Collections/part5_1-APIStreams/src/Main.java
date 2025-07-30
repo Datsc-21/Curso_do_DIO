@@ -7,8 +7,9 @@ public class Main {
 
 
         var value = Stream.of("Maria", "João", "Marcio", "Luana", "Leandro", "Marcia").
+                parallel().
                 filter(n -> n.endsWith("o")).
-               allMatch(n -> n.contains("a"));
+              findAny();
 
 
         System.out.println(value);
