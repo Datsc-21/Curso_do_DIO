@@ -7,10 +7,7 @@ public class Main {
 
 
         var value = Stream.of("Maria", "João", "Marcio", "Luana", "Leandro", "Marcia").
-                parallel().
-                filter(n -> n.endsWith("o")).
-              findAny();
-
+               reduce("", (a,b) -> a + b + ";" );
 
         System.out.println(value);
     }
