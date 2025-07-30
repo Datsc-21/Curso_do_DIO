@@ -36,4 +36,8 @@ public abstract class GenericDAO<T> {
         return db;
     }
 
+
+    public int count(){
+        return db.size();
+    }
 }
