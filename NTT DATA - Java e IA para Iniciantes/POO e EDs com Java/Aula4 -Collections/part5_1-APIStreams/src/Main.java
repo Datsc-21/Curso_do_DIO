@@ -8,7 +8,7 @@ public class Main {
 
 
         var value = Stream.of(1,2,3,4,5,6,7).
-               distinct().collect(Collectors.toList());
+               map(n -> n % 2 == 0).toList();
 
         System.out.println(value);
     }
