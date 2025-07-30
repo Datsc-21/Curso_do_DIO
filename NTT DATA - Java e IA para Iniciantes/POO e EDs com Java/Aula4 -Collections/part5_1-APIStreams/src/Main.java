@@ -4,8 +4,9 @@ public class Main {
     public static void main(String[] args) {
 
         var value = Stream.of("Maria", "João", "Marcio", "Luana", "Leandro", "Marcia").
-                filter(name -> name.endsWith("a"))
-                .toList();
+                peek(System.out::println).
+                filter(name -> name.endsWith("a"));
+
 
         System.out.println(value);
     }
