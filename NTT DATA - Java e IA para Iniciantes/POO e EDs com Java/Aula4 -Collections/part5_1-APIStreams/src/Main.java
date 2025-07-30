@@ -6,8 +6,8 @@ public class Main {
     public static void main(String[] args) {
 
 
-        var value = Stream.of("Maria", "João", "Marcio", "Luana", "Leandro", "Marcia").
-               reduce("", (a,b) -> a + b + ";" );
+        var value = Stream.of(1,2,3,4,5,6,7).
+               reduce(0, Integer::sum );
 
         System.out.println(value);
     }
