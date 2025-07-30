@@ -14,9 +14,10 @@ public class Main {
     public static void main(String[] args) {
 
         List<User> users = new ArrayList<>(generateUsers());
-        users.sort(Comparator.comparing(User::age));
 
-        users.forEach(System.out::println);
+        var values = users.stream().filter(u -> u.contacts().size() >= 2). toList();
+
+    System.out.println(values);
 
     }
 
