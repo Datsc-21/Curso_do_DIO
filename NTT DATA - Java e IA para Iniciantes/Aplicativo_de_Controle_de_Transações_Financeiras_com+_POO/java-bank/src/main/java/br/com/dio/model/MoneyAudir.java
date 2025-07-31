@@ -10,4 +10,9 @@ public record MoneyAudir (
         OffsetDateTime createdAt //E data e hora que ocorreu
 )
 {
+
+
+
+
+
 }
