@@ -16,4 +16,10 @@ public class AccountWallet extends Wallet{
         this.pix = pix;
         addMoney(amount, "valor de criação da conta");
     }
+
+    public void addMoney(final long amount, final String description){
+        var money = generateMoney(amount, description);
+        this.money.addAll(money);
+    }
+
 }
