@@ -78,7 +78,6 @@ public class Main {
 
         var pet = new Pet(name);
         petMachine.setPet(pet);
-        System.out.println("O pet" + pet.getName() + "foi colocado ná máquina");
 }
 
 

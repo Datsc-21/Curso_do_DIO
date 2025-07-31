@@ -65,6 +65,7 @@ public class PetMachine { //Regra de Negocio Criado !!
 
 
         this.pet = pet;
+        System.out.println("O pet" + pet.getName() + "foi colocado ná máquina");
     }
 
     public void removePet(){
