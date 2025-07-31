@@ -9,6 +9,7 @@ import java.util.stream.Stream;
 
 import static br.com.dio.model.BankService.INVESTMENT;
 
+
 @ToString
 @Getter
 public class InvestmentWallet extends Wallet {
@@ -16,7 +17,7 @@ public class InvestmentWallet extends Wallet {
 private final Investment investment;
 private final AccountWallet account;
 
-    public InvestmentWallet( Investment investment, AccountWallet account, final long amount) {
+    public InvestmentWallet( final Investment investment, final AccountWallet account, final long amount) {
         super(INVESTMENT);
         this.investment = investment;
         this.account = account;
@@ -25,9 +26,12 @@ private final AccountWallet account;
 
     public void updateAmount(final long percent){
         var amount = getFunds() * percent / 100;
-        var history = new MoneyAudir(UUID.randomUUID(), getService(), "rendimentos", OffsetDateTime.now() );
+        var history = new MoneyAudit(UUID.randomUUID(), getService(), "rendimentos", OffsetDateTime.now() );
         var money = Stream.generate(() -> new Money(history)).limit(amount).toList();
         this.money.addAll(money);
     }
+
+
+
 
 }
