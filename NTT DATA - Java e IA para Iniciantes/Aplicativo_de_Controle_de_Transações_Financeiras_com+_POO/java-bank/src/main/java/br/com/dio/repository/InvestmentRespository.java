@@ -2,6 +2,7 @@ package br.com.dio.repository;
 
 import br.com.dio.expcetion.InvestmentNotFoundException;
 import br.com.dio.expcetion.WalletNotFoundException;
+import br.com.dio.model.AccountWallet;
 import br.com.dio.model.Investment;
 import br.com.dio.model.InvestmentWallet;
 
@@ -13,9 +14,24 @@ import static br.com.dio.repository.CommonsRepository.checkFundsForTransaction;
 
 public class InvestmentRespository {
 
+    private long nextId;
     private final List<Investment> investments = new ArrayList<>();
     private final List<InvestmentWallet> wallets = new ArrayList<>();
 
+    public Investment create(final long tax, final long daysToRescue, final long initialFunds){
+        this.nextId ++;
+        var investment = new Investment(this.nextId, tax, initialFunds);
+        investments.add(investment);
+        return investment;
+    }
+
+    public InvestmentWallet initInvestment(final AccountWallet account, final long id){
+        var investment = findById(id);
+        checkFundsForTransaction(account, investment.initialFunds());
+        var wallet = new InvestmentWallet(investment, account, investment.initialFunds());
+        wallets.add(wallet);
+        return wallet;
+    }
 
     public InvestmentWallet deposit(final String pix, final long funds){
         var wallet = findWalletByAccountPix(pix);
