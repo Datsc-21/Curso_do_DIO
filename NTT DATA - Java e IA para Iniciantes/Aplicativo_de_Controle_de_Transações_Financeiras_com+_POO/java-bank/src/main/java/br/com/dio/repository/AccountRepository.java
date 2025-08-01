@@ -32,7 +32,7 @@ public class AccountRepository {
         target.addMoney(fundsAmount, "depósito");
     }
 
-    public long withfraw(final String pix, final long amount){
+    public long withdraw(final String pix, final long amount){
         var source = findByPix(pix);
         checkFundsForTransaction(source,amount);
         source.reduceMoney(amount);
