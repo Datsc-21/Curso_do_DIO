@@ -11,7 +11,6 @@ public class AccountWallet extends Wallet{
 
     private final List<String> pix;
 
-
     public AccountWallet( final List<String> pix){
         super(ACCOUNT);
         this.pix = pix;

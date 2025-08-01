@@ -1,0 +1,52 @@
+package br.com.dio.repository;
+
+import br.com.dio.expcetion.AccountNotFoundException;
+import br.com.dio.model.AccountWallet;
+
+import java.util.List;
+
+import static br.com.dio.repository.CommonsRepository.checkFundsForTransaction;
+
+public class AccountRepository {
+
+    private List<AccountWallet> accounts;
+
+    public AccountWallet create(final List<String> pix, final long initiaFunds){
+        var newAccount = new AccountWallet(initiaFunds, pix );
+        accounts.add(newAccount);
+        return newAccount;
+    }
+
+    public void deposit(final String pix, final long fundsAmount){
+        var target = findByPix(pix);
+        target.addMoney(fundsAmount, "depósito");
+    }
+
+    public long withfraw(final String pix, final long amount){
+        var source = findByPix(pix);
+        checkFundsForTransaction(source,amount);
+        source.reduceMoney(amount);
+        return amount;
+    }
+
+    public void transferMoney(final String sourcePix, final String targePix, final long amount ){
+        var source = findByPix(sourcePix);
+        checkFundsForTransaction(source, amount);
+        var target = findByPix(targePix);
+        var message = "pix enviado de '"+ sourcePix + "' para '"+ targePix +"'";
+        target.addMoney(source.reduceMoney(amount), source.getService(), message);
+    }
+
+    public AccountWallet findByPix(final String pix){
+        return accounts.stream().
+        filter(a -> a.getPix().contains(pix)).
+                findFirst().orElseThrow(() -> new
+                        AccountNotFoundException("A conta com a chave pix ' " + pix + "' não existe ou foi encerrada "));
+    }
+
+    public List<AccountWallet> list(){
+        return this.accounts;
+    }
+
+
+}
