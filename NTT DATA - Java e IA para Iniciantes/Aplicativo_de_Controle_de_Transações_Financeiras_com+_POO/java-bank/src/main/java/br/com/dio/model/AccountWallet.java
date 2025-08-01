@@ -1,6 +1,5 @@
 package br.com.dio.model;
 
-
 import lombok.Getter;
 
 import java.util.List;

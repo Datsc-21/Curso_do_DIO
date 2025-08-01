@@ -1,5 +1,6 @@
 package br.com.dio.repository;
 
+import br.com.dio.expcetion.AccountWithInvestmentException;
 import br.com.dio.expcetion.InvestmentNotFoundException;
 import br.com.dio.expcetion.WalletNotFoundException;
 import br.com.dio.model.AccountWallet;
@@ -18,7 +19,7 @@ public class InvestmentRespository {
     private final List<Investment> investments = new ArrayList<>();
     private final List<InvestmentWallet> wallets = new ArrayList<>();
 
-    public Investment create(final long tax, final long daysToRescue, final long initialFunds){
+    public Investment create(final long tax, final long initialFunds){
         this.nextId ++;
         var investment = new Investment(this.nextId, tax, initialFunds);
         investments.add(investment);
@@ -26,6 +27,12 @@ public class InvestmentRespository {
     }
 
     public InvestmentWallet initInvestment(final AccountWallet account, final long id){
+        var accountsInUse = wallets.stream().map(InvestmentWallet::getAccount).toList();
+            if(accountsInUse.contains(account)){
+                throw new AccountWithInvestmentException("A conta '"+ accountsInUse +"' já possui um investimento");
+
+        }
+
         var investment = findById(id);
         checkFundsForTransaction(account, investment.initialFunds());
         var wallet = new InvestmentWallet(investment, account, investment.initialFunds());
@@ -76,7 +83,7 @@ public class InvestmentRespository {
 
 
     public List<Investment> list(){
-        return this.investments
+        return this.investments;
     }
 
 
