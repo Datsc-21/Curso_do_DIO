@@ -38,10 +38,10 @@ public class Main {
             switch (option){
                 case 1 : createAccount();
                 case 2 : createInvestment();
-                case 3 :
+                case 3 : createWalletInvestment();
                 case 4 : deposit();
                 case 5 : withdraw();
-                case 6 :
+                case 6 : tranferToAccount();
                 case 7 :
                 case 8 :
                 case 9 :  accountRepository.list().forEach(System.out::println);
@@ -99,6 +99,31 @@ public class Main {
             System.out.println(ex.getMessage());
         }
 
+    }
+
+    private static void tranferToAccount(){
+        System.out.println("Informe a chave pix da conta de origem:");
+        var source = scanner.next();
+        System.out.println("Informe a chave pix da conta de destino: ");
+        var target = scanner.next();
+        System.out.println("Informe o valor que será depositado: ");
+        var amount = scanner.nextLong();
+        try{
+            accountRepository.transferMoney(source, target, amount);
+        }catch (AccountNotFoundException ex){
+            System.out.println(ex.getMessage());
+        }
+
+    }
+
+    private static void createWalletInvestment(){
+        System.out.println("Informe a chave pix da conta:");
+        var pix = scanner.next();
+        var account = accountRepository.findByPix(pix);
+        System.out.println("Informe o identificador do investimento");
+        var investmentId = scanner.nextInt();
+       var investmentWallet = investmentRepository.initInvestment(account, investmentId);
+       System.out.println("Conta de investimento criada: " + investmentWallet);
     }
 
 
