@@ -160,7 +160,7 @@ public class Main {
         var pix = scanner.next();
         AccountWallet wallet;
         try{
-          var sortedHistory = accountRepository.getHistory(pix);
+          var sortedHistory = accountRepository.(pix);
           sortedHistory.forEach((k, v) -> {
               System.out.println(k.foreat(ISO_DATE_TIME));
               System.out.println(v.getFirst().transactionId());

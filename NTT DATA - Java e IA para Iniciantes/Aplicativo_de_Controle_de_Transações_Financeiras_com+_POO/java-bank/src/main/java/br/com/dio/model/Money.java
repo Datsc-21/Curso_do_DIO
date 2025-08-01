@@ -25,7 +25,4 @@ private final List<MoneyAudit> history = new ArrayList<>();
         this.history.add(history);
     }
 
-    public List<MoneyAudit> getHistory() {
-        return history;
-    }
 }
