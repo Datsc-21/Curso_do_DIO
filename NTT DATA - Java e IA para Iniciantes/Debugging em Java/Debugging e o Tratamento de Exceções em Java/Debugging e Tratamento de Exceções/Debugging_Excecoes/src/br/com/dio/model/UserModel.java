@@ -9,6 +9,15 @@ public class UserModel {
         private String email;
        private OffsetDateTime birthday;
 
+        public UserModel() {}
+
+        public UserModel(long id, String name, String email, OffsetDateTime birthday) {
+                this.id = id;
+                this.name = name;
+                this.email = email;
+                this.birthday = birthday;
+        }
+
         public long getId() {
                 return id;
         }
@@ -55,5 +64,15 @@ public class UserModel {
         @Override
         public int hashCode() {
                 return Objects.hash(id, name, email, birthday);
+        }
+
+        @Override
+        public String toString() {
+                return "UserModel{" +
+                        "id=" + id +
+                        ", name='" + name + '\'' +
+                        ", email='" + email + '\'' +
+                        ", birthday=" + birthday +
+                        '}';
         }
 }
