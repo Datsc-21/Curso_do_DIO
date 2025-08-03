@@ -26,9 +26,33 @@ public class Main {
             var selectedOption = MenuOption.values()[userInput -1];
             switch (selectedOption){
                 case SAVE -> {
-                    var user = requestUserInfo();
+                   var user = dao.save(requestToSave());
+                    System.out.printf("Usuário cadastrado %s", user);
                 }
+                case UPDATE -> {
+                    var user = dao.update(requestToUpdate());
+                    System.out.printf("Usuário atualizado %s", user);
+
+                }
+                case DELETE ->  {
+                    dao.delete(resquetId());
+                    System.out.println("Usuário excluiso");
+
+                }
+                case FIND_BY_ID -> {
+                    var id = resquetId();
+                    var user = dao.findById(id);
+                    System.out.printf("Usuário com id %s: ", id);
+                    System.out.println(user);
+                }
+                case FIND_ALL -> {
+                    var users = dao.findAll();
+                    System.out.println("Usuários cadastrados");
+                    users.forEach(System.out::println);
+                }
+                case EXIT -> System.exit(0);
             }
+
 
 
         }
@@ -36,7 +60,12 @@ public class Main {
 
     }
 
-    private static UserModel requestUserInfo(){
+    private static long resquetId(){
+        System.out.println("Informe o Identificador do usuário: ");
+        return scanner.nextLong();
+    }
+
+    private static UserModel requestToSave(){
         System.out.println("Informe o nome do usuário: ");
         var name = scanner.next();
         System.out.println("Informe o e-mail do usuário: ");
@@ -46,6 +75,21 @@ public class Main {
         var formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         var birthday = OffsetDateTime.parse(birthdayString, formatter);
         return new UserModel(0, name, email, birthday);
+
+    }
+
+    private static UserModel requestToUpdate(){
+        System.out.println("Informe o identificador do usuário: ");
+        var id = scanner.nextLong();
+        System.out.println("Informe o nome do usuário: ");
+        var name = scanner.next();
+        System.out.println("Informe o e-mail do usuário: ");
+        var email = scanner.next();
+        System.out.println("Informe a data de nascimento do usuário (dd/mm/yyyy): ");
+        var birthdayString = scanner.next();
+        var formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        var birthday = OffsetDateTime.parse(birthdayString, formatter);
+        return new UserModel(id, name, email, birthday);
 
     }
 
