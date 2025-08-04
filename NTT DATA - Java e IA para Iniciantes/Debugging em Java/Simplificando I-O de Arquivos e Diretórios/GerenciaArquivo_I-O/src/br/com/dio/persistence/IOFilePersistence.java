@@ -1,10 +1,7 @@
 package br.com.dio.persistence;
 
 import javax.xml.crypto.dsig.spec.XSLTTransformParameterSpec;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.OutputStream;
+import java.io.*;
 
 public class IOFilePersistence implements  FilePersistence{
 
@@ -22,17 +19,27 @@ public class IOFilePersistence implements  FilePersistence{
 
 
     @Override
-    public String write(String data) {
-        return "";
+    public String write( final String data) {
+
+        try(
+                var fileWriter = new FileWriter(currentDir + storedDir + filename, true);
+                var bufferedWrite = new BufferedWriter(fileWriter);
+                var printWriter = new PrintWriter(bufferedWrite)
+        ){
+            printWriter.println(data);
+        }catch (IOException ex){
+            ex.printStackTrace();
+        }
+        return null;
     }
 
     @Override
-    public boolean remover(String sentence) {
+    public boolean remover(final String sentence) {
         return false;
     }
 
     @Override
-    public String replace(String oldContent, String newContent) {
+    public String replace(final String oldContent, final String newContent) {
         return "";
     }
 
@@ -42,7 +49,7 @@ public class IOFilePersistence implements  FilePersistence{
     }
 
     @Override
-    public String findBy(String sentence) {
+    public String findBy( final String sentence) {
         return "";
     }
 
