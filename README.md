@@ -1,2 +1,4 @@
-# Curso_do_DIO
-Esse repósitorio foi criado como objetivo criar outras pastas dos curso do DIO.
+# Criando um Aplicativo de Controle de Transações Financeiras com POO
+
+Descrição do Desafio
+Este laboratório tem como objetivo de consolidar conceitos fundamentais da programação orientada a objetos (POO), como herança, encapsulamento, polimorfismo, abstração e reuso de código. A aplicação simula um sistema bancário básico que permite a criação de contas, depósitos, saques, transferências via PIX, criação de investimentos e acompanhamento de histórico de transações.
