@@ -7,5 +7,6 @@ public class Main {
     public static void main(String[] args) throws IOException {
 
         FilePersistence persistence = new IOFilePersistence("user.csv");
+        System.out.println(persistence.write("Danny;danny@gmail.com;12/02/2002"));
     }
 }
