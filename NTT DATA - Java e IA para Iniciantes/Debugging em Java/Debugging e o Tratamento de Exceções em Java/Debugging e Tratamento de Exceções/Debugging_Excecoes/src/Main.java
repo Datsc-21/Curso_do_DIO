@@ -1,7 +1,10 @@
 import br.com.dio.dao.UserDAO;
+import br.com.dio.exception.EmptyStorageException;
+import br.com.dio.exception.UserNotFoundException;
 import br.com.dio.model.MenuOption;
 import br.com.dio.model.UserModel;
 
+import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
@@ -32,20 +35,32 @@ public class Main {
                     System.out.printf("Usuário cadastrado %s", user);
                 }
                 case UPDATE -> {
+                    try{
                     var user = dao.update(requestToUpdate());
                     System.out.printf("Usuário atualizado %s", user);
-
+                    } catch (UserNotFoundException | EmptyStorageException ex){
+                        System.out.println(ex.getMessage());
+                    }
                 }
+
                 case DELETE ->  {
-                    dao.delete(resquetId());
-                    System.out.println("Usuário excluiso");
-
+                    try {
+                        dao.delete(resquetId());
+                        System.out.println("Usuário excluiso");
+                    } catch (UserNotFoundException | EmptyStorageException ex){
+                        System.out.println(ex.getMessage());
+                    }
                 }
+
                 case FIND_BY_ID -> {
-                    var id = resquetId();
-                    var user = dao.findById(id);
-                    System.out.printf("Usuário com id %s: ", id);
-                    System.out.println(user);
+                    try {
+                        var id = resquetId();
+                        var user = dao.findById(id);
+                        System.out.printf("Usuário com id %s: ", id);
+                        System.out.println(user);
+                    } catch (UserNotFoundException | EmptyStorageException ex) {
+                        System.out.println(ex.getMessage());
+                    }
                 }
                 case FIND_ALL -> {
                     var users = dao.findAll();
@@ -78,7 +93,7 @@ public class Main {
         System.out.println("Informe a data de nascimento do usuário (dd/mm/yyyy): ");
         var birthdayString = scanner.next();
         var formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        var birthday = OffsetDateTime.parse(birthdayString, formatter);
+        var birthday = LocalDate.parse(birthdayString, formatter);
         return new UserModel(0, name, email, birthday);
 
     }
@@ -93,7 +108,7 @@ public class Main {
         System.out.println("Informe a data de nascimento do usuário (dd/mm/yyyy): ");
         var birthdayString = scanner.next();
         var formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        var birthday = OffsetDateTime.parse(birthdayString, formatter);
+        var birthday = LocalDate.parse(birthdayString, formatter);
         return new UserModel(id, name, email, birthday);
 
     }
