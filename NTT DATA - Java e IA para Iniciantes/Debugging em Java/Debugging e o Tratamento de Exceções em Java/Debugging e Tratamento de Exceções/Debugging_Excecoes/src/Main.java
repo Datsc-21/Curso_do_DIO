@@ -1,4 +1,5 @@
 import br.com.dio.dao.UserDAO;
+import br.com.dio.exception.CustomException;
 import br.com.dio.exception.EmptyStorageException;
 import br.com.dio.exception.UserNotFoundException;
 import br.com.dio.exception.ValidatorException;
@@ -37,7 +38,7 @@ public class Main {
                     try {
                         var user = dao.save(requestToSave());
                         System.out.printf("Usuário cadastrado %s", user);
-                    } catch (ValidatorException ex) {
+                    } catch (CustomException ex) {
                         System.out.println(ex.getMessage());
                         ex.printStackTrace();
                     }
@@ -48,7 +49,7 @@ public class Main {
                         System.out.printf("Usuário atualizado %s", user);
                     } catch (UserNotFoundException | EmptyStorageException ex) {
                         System.out.println(ex.getMessage());
-                    } catch (ValidatorException ex) {
+                    } catch (CustomException ex) {
                         System.out.println(ex.getMessage());
                         ex.printStackTrace();
                     } finally{
@@ -58,7 +59,7 @@ public class Main {
 
                 case DELETE ->  {
                     try {
-                        dao.delete(resquetId());
+                        dao.delete(requestId());
                         System.out.println("Usuário excluiso");
                     } catch (UserNotFoundException | EmptyStorageException ex){
                         System.out.println(ex.getMessage());
@@ -69,7 +70,7 @@ public class Main {
 
                 case FIND_BY_ID -> {
                     try {
-                        var id = resquetId();
+                        var id = requestId();
                         var user = dao.findById(id);
                         System.out.printf("Usuário com id %s: ", id);
                         System.out.println(user);
@@ -95,12 +96,12 @@ public class Main {
 
     }
 
-    private static long resquetId(){
+    private static long requestId(){
         System.out.println("Informe o Identificador do usuário: ");
         return scanner.nextLong();
     }
 
-    private static UserModel requestToSave() throws ValidatorException{
+    private static UserModel requestToSave() {
         System.out.println("Informe o nome do usuário: ");
         var name = scanner.next();
         System.out.println("Informe o e-mail do usuário: ");
@@ -115,13 +116,17 @@ public class Main {
 
     private static UserModel validateInputs(final long id,
                                             final String name, final String email,
-                                            final LocalDate birthday) throws ValidatorException{
+                                            final LocalDate birthday){
         var user = new UserModel(0, name,email, birthday);
-        verifyModel(user);
-        return user;
+        try {
+            verifyModel(user);
+            return user;
+        }catch (ValidatorException ex){
+            throw new CustomException("O seu usuário contem erros: " + ex.getMessage(), ex);
+        }
     }
 
-    private static UserModel requestToUpdate() throws ValidatorException {
+    private static UserModel requestToUpdate() {
         System.out.println("Informe o identificador do usuário: ");
         var id = scanner.nextLong();
         System.out.println("Informe o nome do usuário: ");
@@ -132,7 +137,7 @@ public class Main {
         var birthdayString = scanner.next();
         var formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         var birthday = LocalDate.parse(birthdayString, formatter);
-        return validateInputs(0, name, email, birthday);
+        return validateInputs(id, name, email, birthday);
     }
 
 }
