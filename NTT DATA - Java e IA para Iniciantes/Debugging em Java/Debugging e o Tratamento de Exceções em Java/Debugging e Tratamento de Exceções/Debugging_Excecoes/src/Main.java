@@ -40,6 +40,8 @@ public class Main {
                     System.out.printf("Usuário atualizado %s", user);
                     } catch (UserNotFoundException | EmptyStorageException ex){
                         System.out.println(ex.getMessage());
+                    }finally {
+                        System.out.println("=============================");
                     }
                 }
 
@@ -49,6 +51,8 @@ public class Main {
                         System.out.println("Usuário excluiso");
                     } catch (UserNotFoundException | EmptyStorageException ex){
                         System.out.println(ex.getMessage());
+                    } finally {
+                        System.out.println("=============================");
                     }
                 }
 
