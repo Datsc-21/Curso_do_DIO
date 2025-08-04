@@ -1,6 +1,6 @@
 # Desafio do DIO
 
-*Criando um Aplicativo de Controle de Transações Financeiras com POO
+## Criando um Aplicativo de Controle de Transações Financeiras com POO
 
-Descrição do Desafio
+### Descrição do Desafio
 Este laboratório tem como objetivo de consolidar conceitos fundamentais da programação orientada a objetos (POO), como herança, encapsulamento, polimorfismo, abstração e reuso de código. A aplicação simula um sistema bancário básico que permite a criação de contas, depósitos, saques, transferências via PIX, criação de investimentos e acompanhamento de histórico de transações.
