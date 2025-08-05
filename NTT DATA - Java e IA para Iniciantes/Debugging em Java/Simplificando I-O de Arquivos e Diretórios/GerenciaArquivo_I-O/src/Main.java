@@ -39,6 +39,10 @@ public class Main {
         System.out.println(persistence.write("========================================"));
         System.out.println(persistence.write(persistence.findAll()));
         System.out.println(persistence.write("========================================"));
+        System.out.println(persistence.write(persistence.findBy(";bia@")));
+        System.out.println(persistence.write("========================================"));
+        System.out.println(persistence.write(persistence.findBy(";laura@")));
+        System.out.println(persistence.write("========================================"));
 
 
 
