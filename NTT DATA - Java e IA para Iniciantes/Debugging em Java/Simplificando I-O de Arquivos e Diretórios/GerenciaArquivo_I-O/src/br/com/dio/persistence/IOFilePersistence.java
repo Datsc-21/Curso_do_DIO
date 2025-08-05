@@ -30,7 +30,7 @@ public class IOFilePersistence implements  FilePersistence{
         }catch (IOException ex){
             ex.printStackTrace();
         }
-        return null;
+        return data;
     }
 
     @Override
