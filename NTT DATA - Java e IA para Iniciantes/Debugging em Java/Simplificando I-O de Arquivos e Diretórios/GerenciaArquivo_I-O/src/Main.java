@@ -1,6 +1,5 @@
 import br.com.dio.persistence.FilePersistence;
-import br.com.dio.persistence.IOFilePersistence;
-import br.com.dio.persistence.NOFilePersistence;
+import br.com.dio.persistence.NIOFilePersistence;
 
 import java.io.IOException;
 
@@ -31,7 +30,7 @@ public class Main {
         System.out.println("====================================");
         System.out.println(persistence.findAll()); */
 
-        FilePersistence persistence = new NOFilePersistence("user.csv");
+        FilePersistence persistence = new NIOFilePersistence("user.csv");
 
 
 

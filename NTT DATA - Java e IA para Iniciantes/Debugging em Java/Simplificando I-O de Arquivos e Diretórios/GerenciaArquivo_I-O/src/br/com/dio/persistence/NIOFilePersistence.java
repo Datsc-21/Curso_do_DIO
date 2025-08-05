@@ -2,13 +2,13 @@ package br.com.dio.persistence;
 
 import java.io.*;
 
-public class NOFilePersistence implements FilePersistence{
+public class NIOFilePersistence implements FilePersistence{
 
     private final String currentDir = System.getProperty("user.dir");
-    private final String storedDir = "/managedFiles/IO/";
+    private final String storedDir = "/managedFiles/NIO/";
     private final String filename;
 
-    public NOFilePersistence(String filename) throws IOException {
+    public NIOFilePersistence(String filename) throws IOException {
         this.filename = filename;
 
         var file = new File(currentDir + storedDir);
@@ -20,15 +20,14 @@ public class NOFilePersistence implements FilePersistence{
     @Override
     public String write(final String data) {
         try(
-                var file = new RandomAccessFile(new File(currentDir + storedDir + filename), "rw");
-                var channel = file.getChannel()
-                ){
+                var file = new RandomAccessFile(new File(currentDir + storedDir + filename), "rw")){
             file.seek(file.length());
-
+            file.writeBytes(data);
+            file.writeBytes(System.lineSeparator());
         }catch (IOException ex){
             ex.printStackTrace();
         }
-        return null;
+        return data;
     }
 
     @Override
