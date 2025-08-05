@@ -1,11 +1,12 @@
 package br.com.dio.persistence;
 
 import java.io.*;
+import java.nio.ByteBuffer;
 
 public class NIOFilePersistence implements FilePersistence{
 
     private final String currentDir = System.getProperty("user.dir");
-    private final String storedDir = "/managedFiles/NIO/";
+    private final String storedDir = "/managedFiles/NIO/"; //Antes era o IO que foi colocado o NIO
     private final String filename;
 
     public NIOFilePersistence(String filename) throws IOException {
@@ -18,7 +19,7 @@ public class NIOFilePersistence implements FilePersistence{
     }
 
     @Override
-    public String write(final String data) {
+    public String write(final String data) { //Escrita
         try(
                 var file = new RandomAccessFile(new File(currentDir + storedDir + filename), "rw")){
             file.seek(file.length());
@@ -41,8 +42,25 @@ public class NIOFilePersistence implements FilePersistence{
     }
 
     @Override
-    public String findAll() {
-        return "";
+    public String findAll() { //Leitura
+        var content = new StringBuilder();
+        try(var file = new RandomAccessFile(new File(currentDir + storedDir + filename), "r");
+        var channel = file.getChannel();
+        ){
+            var buffer = ByteBuffer.allocate(256);
+            var bytesReader = channel.read(buffer);
+            while(bytesReader != -1){
+                buffer.flip();
+                while (buffer.hasRemaining()){
+                    content.append((char) buffer.get());
+                }
+                buffer.clear();
+                bytesReader = channel.read(buffer);
+            }
+        }catch (IOException ex){
+            ex.printStackTrace();
+        }
+        return content.toString();
     }
 
     @Override
