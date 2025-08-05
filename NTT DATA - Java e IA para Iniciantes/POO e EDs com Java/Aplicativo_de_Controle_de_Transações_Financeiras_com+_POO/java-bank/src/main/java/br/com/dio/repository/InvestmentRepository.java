@@ -12,8 +12,7 @@ import java.util.List;
 
 import static br.com.dio.repository.CommonsRepository.checkFundsForTransaction;
 
-
-public class InvestmentRespository {
+public class InvestmentRepository {
 
     private long nextId = 0;
     private final List<Investment> investments = new ArrayList<>();
@@ -28,11 +27,9 @@ public class InvestmentRespository {
 
     public InvestmentWallet initInvestment(final AccountWallet account, final long id){
         if(!wallets.isEmpty()) {
-
             var accountsInUse = wallets.stream().map(InvestmentWallet::getAccount).toList();
             if (accountsInUse.contains(account)) {
                 throw new AccountWithInvestmentException("A conta '" + accountsInUse + "' já possui um investimento");
-
             }
         }
         var investment = findById(id);
@@ -46,14 +43,12 @@ public class InvestmentRespository {
         var wallet = findWalletByAccountPix(pix);
         wallet.addMoney(wallet.getAccount().reduceMoney(funds), wallet.getService(), "Investimento");
         return wallet;
-
     }
-
 
     public InvestmentWallet withdraw(final String pix, final long funds) {
         var wallet = findWalletByAccountPix(pix);
         checkFundsForTransaction(wallet, funds);
-        wallet.getAccount().addMoney(wallet.reduceMoney(funds), wallet.getService(), "saque de insvestimentos");
+        wallet.getAccount().addMoney(wallet.reduceMoney(funds), wallet.getService(), "saque de investimentos");
         if(wallet.getFunds() == 0 ){
             wallets.remove(wallet);
         }
@@ -64,13 +59,11 @@ public class InvestmentRespository {
         wallets.forEach(w -> w.updateAmount(w.getInvestment().tax()));
     }
 
-
     public Investment findById(final long id){
         return investments.stream().
                 filter(a -> a.id() == id).
                 findFirst().orElseThrow(() -> new InvestmentNotFoundException("O investimento '" + id + "' não foi encontrado "));
     }
-
 
     public InvestmentWallet findWalletByAccountPix(final String pix){
         return wallets.stream().
@@ -78,16 +71,11 @@ public class InvestmentRespository {
                         .contains(pix)).findFirst().orElseThrow(() -> new WalletNotFoundException("A carteira não foi encontrada"));
     }
 
-
     public List<InvestmentWallet> listWallets(){
         return this.wallets;
     }
 
-
     public List<Investment> list(){
         return this.investments;
     }
-
-
-
 }
