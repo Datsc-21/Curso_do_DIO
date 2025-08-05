@@ -55,15 +55,29 @@ public class IOFilePersistence implements  FilePersistence{
                         .append(System.lineSeparator());
             }while (line != null);
 
-        } catch (IOException e) {
-         e.printStackTrace();
+        } catch (IOException ex) {
+         ex.printStackTrace();
         }
         return content.toString();
     }
 
     @Override
     public String findBy( final String sentence) {
-        return null;
+        var found = "";
+        try(var reader = new BufferedReader(new FileReader(currentDir + storedDir + filename))){
+            String line = reader.readLine();
+            while(line != null){
+                if((line.contains(sentence))){
+                    found = line;
+                    break;
+                }
+                 line = reader.readLine();
+            }
+
+        }catch (IOException ex){
+            ex.printStackTrace();
+        }
+        return found;
     }
 
     private void clearFile(){
