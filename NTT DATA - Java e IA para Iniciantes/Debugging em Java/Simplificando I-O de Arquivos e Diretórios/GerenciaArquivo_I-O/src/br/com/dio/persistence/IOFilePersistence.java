@@ -1,7 +1,12 @@
 package br.com.dio.persistence;
 
 import javax.xml.crypto.dsig.spec.XSLTTransformParameterSpec;
+
+
 import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Stream;
 
 public class IOFilePersistence implements  FilePersistence{
 
@@ -35,17 +40,32 @@ public class IOFilePersistence implements  FilePersistence{
 
     @Override
     public boolean remover(final String sentence) {
-        return false;
+        var contentList = toListString();
+
+        if(contentList.stream().noneMatch(c -> c.contains(sentence))) return false;
+
+        clearFile();
+        contentList.stream()
+                .filter(c -> !c.contains(sentence))
+                .forEach(this::write);
+        return true;
     }
 
     @Override
     public String replace(final String oldContent, final String newContent) {
-        return null;
+        var contentList = toListString();
+
+        if(contentList.stream().noneMatch(c -> c.contains(oldContent))) return  "";
+
+        clearFile();
+        contentList.stream()
+                .map(c -> c.contains(oldContent) ? newContent : c)
+                .forEach(this::write);
+        return newContent;
     }
 
     @Override
     public String findAll() {
-
         var content = new StringBuilder();
         try(var reader = new BufferedReader(new FileReader(currentDir + storedDir + filename))){
             String line;
@@ -80,9 +100,15 @@ public class IOFilePersistence implements  FilePersistence{
         return found;
     }
 
+    private List<String> toListString() {
+        var content = findAll();
+        return new ArrayList<>(Stream.of(content.split(System.lineSeparator())).toList());
+
+    }
+
     private void clearFile(){
         try(OutputStream outputStream = new FileOutputStream(currentDir + storedDir + filename) ) {
-           System.out.printf("inicializando recursos (%s) \n", currentDir + storedDir + filename);
+          // System.out.printf("inicializando recursos (%s) \n", currentDir + storedDir + filename);
         }catch (IOException ex){
             ex.printStackTrace();
         }
