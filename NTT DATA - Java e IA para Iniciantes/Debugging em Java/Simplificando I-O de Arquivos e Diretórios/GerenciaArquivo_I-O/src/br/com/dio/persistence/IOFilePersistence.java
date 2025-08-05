@@ -40,17 +40,30 @@ public class IOFilePersistence implements  FilePersistence{
 
     @Override
     public String replace(final String oldContent, final String newContent) {
-        return "";
+        return null;
     }
 
     @Override
     public String findAll() {
-        return "";
+
+        var content = new StringBuilder();
+        try(var reader = new BufferedReader(new FileReader(currentDir + storedDir + filename))){
+            String line;
+            do{
+                line = reader.readLine();
+                if((line != null)) content.append(line)
+                        .append(System.lineSeparator());
+            }while (line != null);
+
+        } catch (IOException e) {
+         e.printStackTrace();
+        }
+        return content.toString();
     }
 
     @Override
     public String findBy( final String sentence) {
-        return "";
+        return null;
     }
 
     private void clearFile(){
