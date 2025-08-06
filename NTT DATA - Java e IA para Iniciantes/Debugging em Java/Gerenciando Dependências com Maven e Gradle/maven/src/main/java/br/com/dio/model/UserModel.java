@@ -9,7 +9,7 @@ import java.time.LocalDate;
 @EqualsAndHashCode
 @NoArgsConstructor
 @ToString
-public class USerModel {
+public class UserModel {
 
     private int code;
     private String userName;
