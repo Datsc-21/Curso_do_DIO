@@ -18,9 +18,9 @@ dependencies {
 
     compileOnly("org.projectlombok:lombok:$lombokVersion")
 
-    annotationProcessor("org.mapstruct:mapstruct:$mapstructVersion")
+    annotationProcessor("org.mapstruct:mapstruct-processor:$mapstructVersion")
     annotationProcessor("org.projectlombok:lombok-mapstruct-binding:$lombokMapstructBinding")
-    annotationProcessor("org.projectLombok:lombok$lombokVersion")
+    annotationProcessor("org.projectlombok:lombok:$lombokVersion")
 
 }
 
