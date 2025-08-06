@@ -1,5 +1,6 @@
 plugins {
     id("java")
+    checkstyle
 }
 
 group = "org.example"
@@ -24,3 +25,13 @@ dependencies {
 
 }
 
+tasks.withType<Checkstyle>().configureEach {
+    reports {
+        xml.required = true
+        html.required = true
+    }
+}
+
+tasks.checkstyleMain{
+    source = fileTree("src/main/main")
+}
