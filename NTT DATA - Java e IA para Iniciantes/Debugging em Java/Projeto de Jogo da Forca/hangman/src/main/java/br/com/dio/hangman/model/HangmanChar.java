@@ -16,4 +16,30 @@ public class HangmanChar {
         this.position = position;
         this.isVisible = true;
     }
+
+    public char getCharacter() {
+        return character;
+    }
+
+    public boolean isVisible() {
+        return isVisible;
+    }
+
+    public boolean isInVisible() {
+        return !isVisible;
+    }
+
+    public void enableVisibility() {
+        isVisible = true;
+    }
+
+    public int getPosition() {
+        return position;
+    }
+
+    public void setPosition(final int position) {
+        this.position = position;
+    }
+
+
 }
