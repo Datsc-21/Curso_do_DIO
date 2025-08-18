@@ -1,5 +1,7 @@
 package br.com.dio.hangman.model;
 
+import java.util.Objects;
+
 public class HangmanChar {
 
     private final char character;
@@ -41,5 +43,26 @@ public class HangmanChar {
         this.position = position;
     }
 
+    @Override
+    public boolean equals(final Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        HangmanChar that = (HangmanChar) o;
+        return character == that.character &&
+                isVisible == that.isVisible &&
+                position == that.position;
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(character, isVisible, position);
+    }
+
+    @Override
+    public String toString() {
+        return "HangmanChar{" +
+                "character=" + character +
+                ", isVisible=" + isVisible +
+                ", position=" + position +
+                '}';
+    }
 }
