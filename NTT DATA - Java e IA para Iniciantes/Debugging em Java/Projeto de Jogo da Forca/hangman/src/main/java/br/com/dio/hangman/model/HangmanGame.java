@@ -10,7 +10,7 @@ public class HangmanGame {
     private final static int HANGMAN_INITIAL_LINE_LENGTH_WITH_LINE_SEPARATOR = 10;
 
     private final int lineSize;
-
+    private final List<HangmanChar> characters;
 
     private String hangman;
     private HangmanGameStatus hangmanGameStatus;
@@ -21,6 +21,7 @@ public class HangmanGame {
         this.lineSize = HANGMAN_INITIAL_LINE_LENGTH_WITH_LINE_SEPARATOR + whiteSpace.length();
         this.hangmanGameStatus = PENDING;
         buildHangmanDesign(whiteSpace, characterSpace);
+        this.characters = setCharacterSpacesPositionInGame(characters, whiteSpace.length());
     }
 
     @Override
@@ -29,7 +30,11 @@ public class HangmanGame {
     }
 
     private List<HangmanChar> setCharacterSpacesPositionInGame(final List<HangmanChar> characters, final int whiteSpacesAmount){
-
+          final var LINE_LETTER = 6;
+          for(int i = 0; i < characters.size(); i++){
+              characters.get(i).setPosition(this.lineSize * LINE_LETTER + HANGMAN_INITIAL_LINE_LENGTH + i);
+          }
+          return characters;
 
     }
 
