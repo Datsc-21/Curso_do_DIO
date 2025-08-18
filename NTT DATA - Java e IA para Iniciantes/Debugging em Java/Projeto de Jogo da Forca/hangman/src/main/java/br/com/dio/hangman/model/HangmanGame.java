@@ -6,12 +6,19 @@ import static br.com.dio.hangman.model.HangmanGameStatus.PENDING;
 
 public class HangmanGame {
 
+    private final static int HANGMAN_INITIAL_LINE_LENGTH = 9;
+    private final static int HANGMAN_INITIAL_LINE_LENGTH_WITH_LINE_SEPARATOR = 10;
+
+    private final int lineSize;
+
+
     private String hangman;
     private HangmanGameStatus hangmanGameStatus;
 
     public HangmanGame(final List<HangmanChar> characters) {
         var whiteSpace = " ".repeat(characters.size());
         var characterSpace = "-".repeat(characters.size());
+        this.lineSize = HANGMAN_INITIAL_LINE_LENGTH_WITH_LINE_SEPARATOR + whiteSpace.length();
         this.hangmanGameStatus = PENDING;
         buildHangmanDesign(whiteSpace, characterSpace);
     }
@@ -21,15 +28,20 @@ public class HangmanGame {
         return this.hangman;
     }
 
+    private List<HangmanChar> setCharacterSpacesPositionInGame(final List<HangmanChar> characters, final int whiteSpacesAmount){
+
+
+    }
+
     private void buildHangmanDesign(final String whiteSpaces, final String characterSpaces){
          this.hangman = "  -----  " + whiteSpaces + System.lineSeparator() +
-                   "  |   |  " + whiteSpaces + System.lineSeparator() +
-                   "  |   |  " + whiteSpaces + System.lineSeparator() +
-                   "  |      " + whiteSpaces + System.lineSeparator() +
-                   "  |      " + whiteSpaces + System.lineSeparator() +
-                   "  |      " + whiteSpaces + System.lineSeparator() +
-                   "  |      " + whiteSpaces + System.lineSeparator() +
-                   "=========" + whiteSpaces + System.lineSeparator();
-         
+                        "  |   |  " + whiteSpaces + System.lineSeparator() +
+                        "  |   |  " + whiteSpaces + System.lineSeparator() +
+                        "  |      " + whiteSpaces + System.lineSeparator() +
+                        "  |      " + whiteSpaces + System.lineSeparator() +
+                        "  |      " + whiteSpaces + System.lineSeparator() +
+                        "  |      " + whiteSpaces + System.lineSeparator() +
+                        "=========" + characterSpaces + System.lineSeparator();
+
     }
 }
