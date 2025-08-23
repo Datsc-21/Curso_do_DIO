@@ -1,9 +1,12 @@
 package br.com.dio.hangman.model;
 
+import br.com.dio.hangman.exception.GameIsFinishedException;
+
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Stream;
 
-import static br.com.dio.hangman.model.HangmanGameStatus.PENDING;
+import static br.com.dio.hangman.model.HangmanGameStatus.*;
 
 public class HangmanGame {
 
@@ -11,8 +14,10 @@ public class HangmanGame {
     private final static int HANGMAN_INITIAL_LINE_LENGTH_WITH_LINE_SEPARATOR = 10;
 
     private final int lineSize;
+    private final int hangmanInitialSize;
     private final List<HangmanChar> hangmanPaths;
     private final List<HangmanChar> characters;
+    private final List<Character> failAttempts = new ArrayList<>();
 
     private String hangman;
     private HangmanGameStatus hangmanGameStatus;
@@ -21,9 +26,33 @@ public class HangmanGame {
         var whiteSpace = " ".repeat(characters.size());
         var characterSpace = "-".repeat(characters.size());
         this.lineSize = HANGMAN_INITIAL_LINE_LENGTH_WITH_LINE_SEPARATOR + whiteSpace.length();
+        this.hangmanPaths = buildHangmanPathsPositions();
         this.hangmanGameStatus = PENDING;
         buildHangmanDesign(whiteSpace, characterSpace);
         this.characters = setCharacterSpacesPositionInGame(characters, whiteSpace.length());
+        this.hangmanInitialSize = hangman.length();
+    }
+
+    public void inputCharacter(final char character){
+        if(this.hangmanGameStatus != PENDING){
+            var message = this.hangmanGameStatus == WIN ?
+                    "Parabéns você ganhou!" :
+                    "Você perdeu, tente novamente";
+            throw new GameIsFinishedException(message);
+        }
+
+        var found = this.characters.stream().
+                filter(c -> c.getCharacter() == character).
+                toList();
+
+        if(found.isEmpty()){
+            failAttempts.add(character);
+            if(failAttempts.size() >= 6){
+                this.hangmanGameStatus = LOSE;
+            }
+           return;
+        }
+
     }
 
     @Override
@@ -55,6 +84,13 @@ public class HangmanGame {
           }
           return characters;
 
+    }
+
+    private void rebuildHangman(final HangmanChar... hangmanChars){
+        var hangmanBuilder = new StringBuilder(this.hangman);
+        Stream.of(hangmanChars).forEach(h ->
+                hangmanBuilder.setCharAt(h.getPosition(), h.getCharacter()
+                ));
     }
 
     private void buildHangmanDesign(final String whiteSpaces, final String characterSpaces){
