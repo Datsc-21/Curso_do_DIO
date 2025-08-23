@@ -1,6 +1,7 @@
 package br.com.dio.hangman.model;
 
 import br.com.dio.hangman.exception.GameIsFinishedException;
+import br.com.dio.hangman.exception.LetterAlreadyInputtedException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -45,14 +46,33 @@ public class HangmanGame {
                 filter(c -> c.getCharacter() == character).
                 toList();
 
+        if(this.failAttempts.contains(character)){
+            throw new LetterAlreadyInputtedException("A letra '" + character + "' já foi informada anteriomente");
+
+        }
+
         if(found.isEmpty()){
             failAttempts.add(character);
             if(failAttempts.size() >= 6){
                 this.hangmanGameStatus = LOSE;
             }
+            rebuildHangman(this.hangmanPaths.removeFirst());
            return;
         }
 
+        if(found.getFirst().isVisible()){
+            throw new LetterAlreadyInputtedException("A letra '" + character + "' já foi informada anteriomente");
+        }
+
+        this.characters.forEach(c -> {
+            if(c.getCharacter() == found.getFirst().getCharacter()){
+                c.enableVisibility();
+            }
+        });
+       if(this.characters.stream().noneMatch(HangmanChar::isInvisible)){
+           this.hangmanGameStatus = WIN;
+       }
+       rebuildHangman(found.toArray(HangmanChar[]::new));
     }
 
     @Override
@@ -91,6 +111,8 @@ public class HangmanGame {
         Stream.of(hangmanChars).forEach(h ->
                 hangmanBuilder.setCharAt(h.getPosition(), h.getCharacter()
                 ));
+        var failMessage = this.failAttempts.isEmpty() ? "" : "Tentativas" + this.failAttempts;
+        this.hangman = hangmanBuilder.substring(0, hangmanInitialSize) + failMessage;
     }
 
     private void buildHangmanDesign(final String whiteSpaces, final String characterSpaces){
