@@ -51,7 +51,6 @@ public class Main {
             hangmanGame.inputCharacter(character);
         }catch(LetterAlreadyInputtedException ex){
             System.out.println(ex.getMessage());
-            System.out.println(hangmanGame);
     } catch (GameIsFinishedException ex){
             System.out.println(ex.getMessage());
             System.exit(0);
