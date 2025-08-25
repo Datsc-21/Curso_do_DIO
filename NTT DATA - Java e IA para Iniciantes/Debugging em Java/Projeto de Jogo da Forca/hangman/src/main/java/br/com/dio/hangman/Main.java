@@ -23,19 +23,25 @@ public class Main {
         System.out.println(hangmanGame);
 
         var option = -1;
-        while(option != 3){
+        while(true){
             System.out.println("Selecione uma das opções: ");
             System.out.println("1 - Informar uma letra");
             System.out.println("2 - Verificar status do jogo");
             System.out.println("3 - Sair do jogo");
             option = scanner.nextInt();
-            if ((option > 3) || (option < 1)){
-                System.out.println("Opção inválida");
-            }
-            if(option == 1){
-                inputCharacter(hangmanGame);
+            switch (option) {
+                case 1 -> inputCharacter(hangmanGame);
+                case 2 -> showGameStatus(hangmanGame);
+                case 3 -> System.exit(0);
+                default -> System.out.println("Opção inválida");
             }
         }
+    }
+
+    private static void showGameStatus(HangmanGame hangmanGame) {
+        System.out.println(hangmanGame.getHangmanGameStatus());
+        System.out.println(hangmanGame);
+
     }
 
     private static void inputCharacter(HangmanGame hangmanGame) {
@@ -50,6 +56,7 @@ public class Main {
             System.out.println(ex.getMessage());
             System.exit(0);
         }
+        System.out.println(hangmanGame);
     }
 
 }
