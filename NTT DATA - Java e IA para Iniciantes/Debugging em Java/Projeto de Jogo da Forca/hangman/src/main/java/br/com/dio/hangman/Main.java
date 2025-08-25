@@ -1,5 +1,7 @@
 package br.com.dio.hangman;
 
+import br.com.dio.hangman.exception.GameIsFinishedException;
+import br.com.dio.hangman.exception.LetterAlreadyInputtedException;
 import br.com.dio.hangman.model.HangmanChar;
 import br.com.dio.hangman.model.HangmanGame;
 
@@ -19,21 +21,35 @@ public class Main {
 
         System.out.println(" Bem vindo ao jogo da forca, tente adivinhar a palavra, boa sorte");
         System.out.println(hangmanGame);
-        System.out.println("Selecione uma das opções: ");
-        System.out.println("1 - Informar uma letra");
-        System.out.println("2 - Verificar status do jogo");
-        System.out.println("3 - Sair do jogo");
+
         var option = -1;
         while(option != 3){
+            System.out.println("Selecione uma das opções: ");
+            System.out.println("1 - Informar uma letra");
+            System.out.println("2 - Verificar status do jogo");
+            System.out.println("3 - Sair do jogo");
             option = scanner.nextInt();
             if ((option > 3) || (option < 1)){
                 System.out.println("Opção inválida");
             }
+            if(option == 1){
+                inputCharacter(hangmanGame);
+            }
         }
+    }
 
-
-
-
+    private static void inputCharacter(HangmanGame hangmanGame) {
+        System.out.println("Informe uma letra");
+        var character = scanner.next().charAt(0);
+        try {
+            hangmanGame.inputCharacter(character);
+        }catch(LetterAlreadyInputtedException ex){
+            System.out.println(ex.getMessage());
+            System.out.println(hangmanGame);
+    } catch (GameIsFinishedException ex){
+            System.out.println(ex.getMessage());
+            System.exit(0);
+        }
     }
 
 }
