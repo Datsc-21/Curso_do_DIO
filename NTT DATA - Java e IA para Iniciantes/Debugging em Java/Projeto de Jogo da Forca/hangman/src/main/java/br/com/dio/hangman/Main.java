@@ -3,9 +3,12 @@ package br.com.dio.hangman;
 import br.com.dio.hangman.model.HangmanChar;
 import br.com.dio.hangman.model.HangmanGame;
 
+import java.util.Scanner;
 import java.util.stream.Stream;
 
 public class Main {
+
+    private final static Scanner scanner = new Scanner(System.in);
 
     public static void main(String... args){
         var characters = Stream.of(args)
@@ -13,22 +16,23 @@ public class Main {
                 .map(HangmanChar::new).toList();
         System.out.println(characters);
         var hangmanGame = new HangmanGame(characters);
-        System.out.println(hangmanGame);
-        hangmanGame.inputCharacter('a');
-        System.out.println(hangmanGame);
-        hangmanGame.inputCharacter('a');
-        System.out.println(hangmanGame);
-        hangmanGame.inputCharacter('b');
-        System.out.println(hangmanGame);
-        hangmanGame.inputCharacter('c');
 
-        hangmanGame.inputCharacter('c');
+        System.out.println(" Bem vindo ao jogo da forca, tente adivinhar a palavra, boa sorte");
         System.out.println(hangmanGame);
-        hangmanGame.inputCharacter('d');
-        System.out.println(hangmanGame);
-        hangmanGame.inputCharacter('e');
-        System.out.println(hangmanGame);
-        hangmanGame.inputCharacter('f');
+        System.out.println("Selecione uma das opções: ");
+        System.out.println("1 - Informar uma letra");
+        System.out.println("2 - Verificar status do jogo");
+        System.out.println("3 - Sair do jogo");
+        var option = -1;
+        while(option != 3){
+            option = scanner.nextInt();
+            if ((option > 3) || (option < 1)){
+                System.out.println("Opção inválida");
+            }
+        }
+
+
+
 
     }
 
