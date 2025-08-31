@@ -156,7 +156,8 @@ public class Main {
         try{
             // Supondo que getHistory retorna Map<LocalDateTime, List<MoneyAudit>>
             var sortedHistory = accountRepository.getHistory(pix);
-            for (Map.Entry<java.time.LocalDateTime, List<br.com.dio.model.MoneyAudit>> entry : sortedHistory.entrySet()) {
+            for (Map.Entry<java.time.LocalDateTime, List<br.com.dio.model.MoneyAudit>>
+                    entry : sortedHistory.entrySet()) {
                 java.time.LocalDateTime data = entry.getKey();
                 List<br.com.dio.model.MoneyAudit> lista = entry.getValue();
                 if (!lista.isEmpty()) {
