@@ -12,7 +12,7 @@ import java.util.List;
 public class UsuarioController {
     @Autowired
     private UsuarioRepository repository;
-  @GetMapping()
+    @GetMapping()
     public List<Usuario> getUsers() {
         return repository.findAll();
     }
@@ -28,4 +28,8 @@ public class UsuarioController {
     public void postUser(@RequestBody Usuario usuario){
       repository.save(usuario);
     }
+    @PutMapping()
+    public void putUser(@RequestBody Usuario usuario){
+    repository.save(usuario);
+   }
 }
