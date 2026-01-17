@@ -11,3 +11,5 @@ public class Application {
 	}
 
 }
+
+//Finalizando o Springboot Security JWT Atualizado
