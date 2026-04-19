@@ -44,4 +44,4 @@ O laboratório foi montado utilizando máquinas virtuais para simular um cenári
 ```bash
 ping -c 3 (IP)
 ```
-! [Conexão das máquinas](Modulo/4/Alcancadoamaquinavulnverabelnometa2.png)
+! [Conexão das máquinas](Ciberseguranca_Riachuello/Modulo4/Alcancadoamaquinavulnverabelnometa2.png)
