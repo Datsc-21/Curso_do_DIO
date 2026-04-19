@@ -19,8 +19,7 @@ Implementar, documentar e compartilhar um projeto prático utilizando **Kali Lin
   - Validação de acessos obtidos;
   - Recomendações de mitigação.
  
-  - ==============================================================================================================================================================
-  - # 🔐 Projeto Prático: Simulação de Ataques de Força Bruta com Kali Linux e Medusa
+# 🔐 Projeto Prático: Simulação de Ataques de Força Bruta com Kali Linux e Medusa
 
 ## 📌 Visão Geral
 Este projeto demonstra, em um **ambiente controlado**, como ataques de força bruta podem ocorrer em diferentes serviços (**FTP, Web e SMB**) e quais medidas podem ser adotadas para mitigá-los.
@@ -42,6 +41,6 @@ O laboratório foi montado utilizando máquinas virtuais para simular um cenári
 
 ### 📡 Verificação de Conectividade
 ```bash
-ping -c 3 (IP)
+ping -c 3 192.168.56.102
 ```
-![Conexão das máquinas](./Modulo/4/Alcancadoamaquinavulnverabelnometa2.png)
+![Conexão das máquinas](./Modulo4/Alcancadoamaquinavulnverabelnometa2.png)
