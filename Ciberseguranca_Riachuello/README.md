@@ -18,73 +18,28 @@ Implementar, documentar e compartilhar um projeto prático utilizando **Kali Lin
   - Comandos utilizados;
   - Validação de acessos obtidos;
   - Recomendações de mitigação.
+ 
+  - ==============================================================================================================================================================
+  - # 🔐 Projeto Prático: Simulação de Ataques de Força Bruta com Kali Linux e Medusa
 
-> ⚠️ **Atenção:** Este desafio é flexível!  
-Você pode:
-- Seguir os cenários propostos (FTP, DVWA, SMB);
-- Adaptar para sua realidade:
-  - Testar outras ferramentas;
-  - Criar novas wordlists;
-  - Explorar outros serviços e módulos;
-  - Documentar aprendizados, reflexões e exemplos de código.
+## 📌 Visão Geral
+Este projeto demonstra, em um **ambiente controlado**, como ataques de força bruta podem ocorrer em diferentes serviços (**FTP, Web e SMB**) e quais medidas podem ser adotadas para mitigá-los.
 
-🎯 **O mais importante é demonstrar seu entendimento e compartilhar sua jornada de aprendizado!**
+O laboratório foi montado utilizando máquinas virtuais para simular um cenário realista de testes de segurança.
 
 ---
 
-## 🎯 Objetivos de Aprendizagem
-Ao concluir este desafio, você será capaz de:
+## 🧪 Ambiente do Laboratório
 
-- Compreender ataques de força bruta em diferentes serviços (**FTP, Web, SMB**);
-- Utilizar o **Kali Linux** e o **Medusa** para auditoria de segurança em ambiente controlado;
-- Documentar processos técnicos de forma clara e estruturada;
-- Reconhecer vulnerabilidades comuns e propor medidas de mitigação;
-- Utilizar o **GitHub** como portfólio técnico.
+### 🖥️ Máquinas Utilizadas
+- Kali Linux (máquina atacante)
+- Metasploitable 2 (máquina vulnerável)
+- DVWA (aplicação web vulnerável)
 
----
+### 🌐 Configuração de Rede
+- Tipo de rede: Host-Only
+- Comunicação direta entre as VMs
 
-## 📦 Entrega do Desafio
-
-### ✅ Requisitos
-- Assistir a todas as vídeo-aulas  
-  > ❗ Não pule etapas — elas são essenciais para o sucesso do projeto.
-
-- Criar um repositório público no GitHub contendo:
-  - 📄 Um arquivo `README.md` detalhado;
-  - 📁 Arquivos adicionais relevantes:
-    - Wordlists
-    - Scripts
-    - Configurações
-  - 🖼️ (Opcional) Capturas de tela organizadas em `/images`
-
-
----
-
-## 🔧 Ferramentas Utilizadas
-- Kali Linux
-- Medusa
-- Metasploitable 2
-- DVWA (Damn Vulnerable Web Application)
-- Nmap (para enumeração)
-
----
-
-## 📚 Recursos Úteis
-
-### 📄 Materiais
-- Slide: *Criando um Ataque Brute Force de senhas com Medusa e Kali Linux*
-
-### 🌐 Documentações Oficiais
-- Kali Linux – Site Oficial  
-- DVWA – Damn Vulnerable Web Application  
-- Medusa – Documentação  
-- Nmap – Manual Oficial  
-
----
-
-## ⚠️ Aviso Legal
-Este projeto deve ser realizado **exclusivamente em ambiente controlado e autorizado**, como laboratórios locais com máquinas virtuais.  
-**Nunca execute testes em sistemas reais sem permissão explícita.**
-
-
-
+### 📡 Verificação de Conectividade
+```bash
+ping -c 3 (IP)
