@@ -43,5 +43,5 @@ O laboratório foi montado utilizando máquinas virtuais para simular um cenári
 ### 📡 Verificação de Conectividade
 ```bash
 ping -c 3 (IP)
-
+```
 ![Conexão das máquinas](Modulo/4/Alcancadoamaquinavulnverabelnometa2.png)
