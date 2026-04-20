@@ -86,3 +86,37 @@ python3 keylogger.py
 /keylogger
 |---Keylogger.py
 |---logs.txt
+```
+## 🧠 Técnicas Simuladas
+Captura de entrada do usuário;
+Manipulação de arquivos;
+Criptografia básica;
+Execução silenciosa (modo furtivo simples);
+Exfiltração de dados (simulada).
+
+## 🛡️ Medidas de Defesa e Prevenção
+### 🔍 1. Antivírus e Antimalware
+- Detectam comportamentos suspeitos;
+- Bloqueiam execução de scripts maliciosos.
+### 🔥 2. Firewall
+- Controla conexões de entrada e saída;
+- Evita envio de dados não autorizado.
+### 🧪 3. Sandboxing
+- Executa arquivos suspeitos em ambiente isolado;
+- Evita danos ao sistema principal.
+### 👤 4. Conscientização do Usuário
+- Não abrir arquivos desconhecidos;
+- Evitar clicar em links suspeitos;
+- Cuidado com engenharia social.
+### 🔐 5. Boas Práticas de Segurança
+- Manter sistema atualizado;
+- Utilizar backups frequentes;
+- Princípio do menor privilégio;
+- Monitoramento de atividades.
+
+## 📸 Evidências
+Imagens e testes podem ser encontrados na pasta:
+
+### Ransoware
+![Pasta do MALWARE](Modulo5/ExecutandoScripteCriptografarosarquivos.png)
+![Pasta do MALWARE](Modulo5/Descriptografandoosarquivos.png)
