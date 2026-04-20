@@ -62,3 +62,9 @@ python3 ransomware.py
 ## ⌨️ Keylogger Simulado
 ### 📖 Descrição
 O keylogger captura as teclas digitadas pelo usuário e armazena em um arquivo .txt.
+
+### ⚙️ Funcionamento
+- Escuta eventos do teclado;
+- Registra teclas pressionadas;
+- Salva em arquivo local;
+- (Opcional) envia automaticamente por e-mail.
