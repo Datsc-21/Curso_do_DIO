@@ -1,4 +1,5 @@
 # 🔐 Desafio: Ataques de Força Bruta com Kali Linux e Medusa
+Esse desafio é do curso de Cibersegurança da Riachuelo da plataforma de cursos da DIO.
 
 ## 📌 Descrição do Desafio
 Implementar, documentar e compartilhar um projeto prático utilizando **Kali Linux** e a ferramenta **Medusa**, em conjunto com ambientes vulneráveis (como **Metasploitable 2** e **DVWA**), para simular cenários de ataque de força bruta e exercitar medidas de prevenção.
