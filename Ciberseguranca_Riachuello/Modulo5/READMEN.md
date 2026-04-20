@@ -118,5 +118,5 @@ Exfiltração de dados (simulada).
 Imagens e testes podem ser encontrados na pasta:
 
 ### Ransoware
-![Pasta do MALWARE](Modulo5/Imagens/ExecutandoScripteCriptografarosarquivos.png)
-![Pasta do MALWARE](Modulo5/Imagens/Descriptografandoosarquivos.png)
+![Pasta do MALWARE](Imagens/ExecutandoScripteCriptografarosarquivos.png)
+![Pasta do MALWARE](Imagens/Descriptografandoosarquivos.png)
