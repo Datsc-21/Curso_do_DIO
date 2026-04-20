@@ -67,4 +67,8 @@ O keylogger captura as teclas digitadas pelo usuário e armazena em um arquivo .
 - Escuta eventos do teclado;
 - Registra teclas pressionadas;
 - Salva em arquivo local;
-- (Opcional) envia automaticamente por e-mail.
+- (Opcional) envia automaticamente por e-mail.### ▶️ Execução
+
+```bash
+python3 keylogger.py
+```
