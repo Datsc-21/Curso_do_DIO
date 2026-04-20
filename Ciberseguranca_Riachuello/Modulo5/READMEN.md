@@ -134,5 +134,22 @@ Imagens e testes podem ser encontrados na pasta:
 ### 🌐 Exportação via E-Mail
 ![Pasta do MALWARE](Imagens/Exportandodadosemambientecontrolado.png)
 
+## 📊 Resultados e Aprendizados
+Durante o desenvolvimento deste projeto foi possível:
+- Entender como malwares operam internamente;
+- Perceber a importância de ambientes controlados;
+- Identificar riscos reais de segurança;
+- Aprender como mitigar ameaças digitais.
+
+## 🚀 Possíveis Melhorias
+- Implementar criptografia mais robusta;
+- Criar interface gráfica;
+- Melhorar furtividade do keylogger;
+- Simular detecção por antivírus;
+- Adicionar logs mais detalhados.
+
+## 📎 Conclusão
+Este projeto reforça a importância da Cibersegurança, mostrando que ataques podem ser simples de implementar, mas também podem ser prevenidos com boas práticas e conhecimento técnico.
+
 
 
