@@ -59,6 +59,14 @@ O ransomware simulado tem como objetivo:
 ```bash
 python3 ransomware.py
 ```
+### 📁 Exemplo de Estrutura
+```bash
+/MAMHWARE
+|---ransoware.py
+|---chave.key
+|---decript.key
+|---LEIA ISSO.txt
+``
 ## ⌨️ Keylogger Simulado
 ### 📖 Descrição
 O keylogger captura as teclas digitadas pelo usuário e armazena em um arquivo .txt.
@@ -67,8 +75,14 @@ O keylogger captura as teclas digitadas pelo usuário e armazena em um arquivo .
 - Escuta eventos do teclado;
 - Registra teclas pressionadas;
 - Salva em arquivo local;
-- (Opcional) envia automaticamente por e-mail.### ▶️ Execução
+- (Opcional) envia automaticamente por e-mail.
 
+### ▶️ Execução
 ```bash
 python3 keylogger.py
 ```
+### 📁 Exemplo de Estrutura
+```bash
+/keylogger
+|---Keylogger.py
+|---logs.txt
