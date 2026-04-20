@@ -117,21 +117,21 @@ Exfiltração de dados (simulada).
 ## 📸 Evidências
 Imagens e testes podem ser encontrados na pasta:
 
-### RANSOWARE
-#### 🔒 Criptografando
+## 👾 RANSOWARE
+### 🔒 Criptografando
 ![Pasta do MALWARE](Imagens/ExecutandoScripteCriptografarosarquivos.png)
 
-#### 🔐 Descriptografando
+### 🔐 Descriptografando
 ![Pasta do MALWARE](Imagens/Descriptografandoosarquivos.png)
 
-### KEYLOGGER
-### Capturando 
+## 👁️ KEYLOGGER
+### 📥 Capturando 
 ![Pasta do MALWARE](Imagens/Rodandooarquivoskeylogger.png)
 
-### Capturação refinado
+### ⌨️📥 Capturação refinado
 ![Pasta do MALWARE](Imagens/tornandokeyloggerinvisivilparausuarios.png)
 
-### Exportação via E-Mail
+### 🌐 Exportação via E-Mail
 ![Pasta do MALWARE](Imagens/Exportandodadosemambientecontrolado.png)
 
 
