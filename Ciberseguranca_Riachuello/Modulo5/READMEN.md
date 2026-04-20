@@ -1,5 +1,8 @@
 # 🛡️ Simulação de Malware com Python (Ransomware + Keylogger)
 
+Esse desafio é do curso de Cibersegurança da Riachuelo da plataforma de cursos da DIO.
+
+
 ## 📌 Sobre o Projeto
 Este projeto tem como objetivo demonstrar, **em ambiente controlado e com fins educacionais**, o funcionamento de dois tipos comuns de malware:
 
